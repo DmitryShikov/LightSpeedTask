@@ -16,8 +16,7 @@ It performs a full deep copy of:
 Simply call:
 
 ```java
-DeepCopyService copier = new DeepCopyService();
-YourType copy = (YourType) copier.deepCopy(originalObject);
+YourType copy = CopyUtils.deepCopy(originalObject);
 ```
 
 💡 You need to cast the result back to your original type manually.
@@ -52,4 +51,4 @@ Included test cases cover:
 - Uses internal APIs (`ReflectionFactory`) which may not work in all environments (e.g. GraalVM, Android)
 
 
-Run `main()` in `DeepCopyServiceTest.java` to verify functionality.
+Run `main()` in `CopyUtilsTest.java` to verify functionality.
