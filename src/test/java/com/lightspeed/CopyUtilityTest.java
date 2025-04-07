@@ -57,7 +57,7 @@ public class CopyUtilityTest {
         assertSame(anon, copied, "Should get the sane anonim class object");
 
 
-        System.out.println("\n✅ All tests passed successfully!");
+        System.out.println("\n All tests passed successfully!");
     }
 
     static void assertEquals(Object a, Object b, String msg) {
