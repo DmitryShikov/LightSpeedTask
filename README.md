@@ -1,6 +1,6 @@
-# Deep Copy Utils
+# Deep Copy Utility
 
-This is my custom implementation of a deep copy Utils.
+This is my custom implementation of a deep copy utility.
 
 It performs a full deep copy of:
 
@@ -16,10 +16,8 @@ It performs a full deep copy of:
 Simply call:
 
 ```java
-YourType copy = CopyUtils.deepCopy(originalObject);
+YourType copy = CopyUtility.deepCopy(originalObject);
 ```
-
-💡 You need to cast the result back to your original type manually.
 
 ### ⚠️ Notes
 
@@ -51,4 +49,4 @@ Included test cases cover:
 - Uses internal APIs (`ReflectionFactory`) which may not work in all environments (e.g. GraalVM, Android)
 
 
-Run `main()` in `CopyUtilsTest.java` to verify functionality.
+Run `main()` in `CopyUtilityTest.java` to verify functionality.

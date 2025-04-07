@@ -2,37 +2,37 @@ package com.lightspeed;
 
 import java.util.*;
 
-public class CopyUtilsTest {
+public class CopyUtilityTest {
 
     public static void main(String[] args) {
 
         // 1. String (immutable)
         String s = "hello";
-        Object copiedS = CopyUtils.deepCopy(s);
+        Object copiedS = CopyUtility.deepCopy(s);
         assertSame(s, copiedS, "String reference should remain the same");
 
         // 2. Array
         String[] arr = {"a", "b", "c"};
-        String[] copiedArr = CopyUtils.deepCopy(arr);
+        String[] copiedArr = CopyUtility.deepCopy(arr);
         assertNotSame(arr, copiedArr, "Array should be a new instance");
         assertEquals(arr[0], copiedArr[0], "Array elements should match");
 
         // 3. ArrayList
         List<String> list = new ArrayList<>(List.of("one", "two"));
-        List<?> copiedList = CopyUtils.deepCopy(list);
+        List<?> copiedList = CopyUtility.deepCopy(list);
         assertNotSame(list, copiedList, "List should be a new object");
         assertEquals(list, copiedList, "List contents should match");
 
         // 4. HashMap
         Map<String, Integer> map = new HashMap<>();
         map.put("age", 42);
-        Map<?, ?> copiedMap = CopyUtils.deepCopy(map);
+        Map<?, ?> copiedMap = CopyUtility.deepCopy(map);
         assertNotSame(map, copiedMap, "Map should be a new instance");
         assertEquals(map.get("age"), copiedMap.get("age"), "Map contents should match");
 
         // 5. Man object
         Man originalMan = new Man("Dima", 30, List.of("Clean Code", "Kafka Streams"));
-        Man copiedMan = CopyUtils.deepCopy(originalMan);
+        Man copiedMan = CopyUtility.deepCopy(originalMan);
         assertNotSame(originalMan, copiedMan, "Man instances should be different");
         assertEquals(originalMan.getName(), copiedMan.getName(), "Names should match");
         assertEquals(originalMan.getFavoriteBooks(), copiedMan.getFavoriteBooks(), "Favorite books should match");
@@ -40,20 +40,20 @@ public class CopyUtilsTest {
         // 6. Cyclic reference
         Node node = new Node();
         node.self = node;
-        Node copiedNode = CopyUtils.deepCopy(node);
+        Node copiedNode = CopyUtility.deepCopy(node);
         assertNotSame(node, copiedNode, "Cyclic object should be a new instance");
         assertSame(copiedNode.self, copiedNode, "Cyclic reference should be preserved");
 
         // 7. Inheritance
         ExtendedMan extMan = new ExtendedMan("Mike", 25, List.of("Book"), "USA");
-        ExtendedMan copiedExtMan = CopyUtils.deepCopy(extMan);
+        ExtendedMan copiedExtMan = CopyUtility.deepCopy(extMan);
         assertEquals(extMan.getCountry(), copiedExtMan.getCountry(), "Fields of superclass should be copied");
 
         // 8. Anonim class
         Object anon = new Object() {
             String message = "I am anonymous";
         };
-        Object copied = CopyUtils.deepCopy(anon);
+        Object copied = CopyUtility.deepCopy(anon);
         assertSame(anon, copied, "Should get the sane anonim class object");
 
 

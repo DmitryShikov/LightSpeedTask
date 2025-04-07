@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 
-public final class CopyUtils {
+public final class CopyUtility {
 
     @SuppressWarnings("unchecked")
     public static <T> T deepCopy(T source) {
